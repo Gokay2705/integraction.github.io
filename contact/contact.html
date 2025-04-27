@@ -1,92 +1,108 @@
 <!DOCTYPE html>
-<html lang="fr"></html>
-   <head>
-      <meta charset="utf-8">
-      <meta http-equiv="X-UA-Compatible" content="IE=edge">
-      <meta name="viewport" content="width=device-width, initial-scale=1">
-      <title>Integraction/contact</title>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Integraction - Contact</title>
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+  <link href="../css/contact.css" rel="stylesheet">
+</head>
 
-      <link href="../css/contact.css" rel="stylesheet">
-      <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
-   </head>
-   <body>
-      <div class="row">
-         <div class="col-md-3">
-            <nav>
-               <h3>Menu</h3>
-               <ul>
-                  <li><a href="../index.html">Accueil</a></li>
-                  <li><a href="#section2">À propos</a></li>
-                  <li><a href="#section3">Services</a></li>
-               </ul>
-            </nav>
-         </div>
-         <div class="col-md-9">
-            <main>
-               <header class="text-center">
-                  <h1>Integraction</h1>
-                  <h2>Page Web</h2>
-               </header>
+<body>
+  <div class="d-flex">
+    <nav class="p-3 bg-light shadow" style="width: 220px; height: 100vh;">
+      <h4><i class="fas fa-bars"></i>Menu</h4>
+      <ul class="list-unstyled mb-3">
+        <li class="mb-3"><a href="../index.html" class="text-dark text-decoration-none">Accueil</a></li>
+        <li class="mb-3"><a href="#section2" class="text-dark text-decoration-none">À propos</a></li>
+        <li class="mb-3"><a href="#section3" class="text-dark text-decoration-none">Services</a></li>
+        <li class="mb-3"><a href="../contact/contact.html" class="text-dark text-decoration-none">Contact</a></li>
+      </ul>
+      <h5 class="mb-4">Liens Utiles</h5>
+      <ul class="list-unstyled mb-3">
+         <li class="mb-3">
+            <a href="https://www.facebook.com/Integraction" class="text-dark text-decoration-none">
+              <img src="../icons/icons8-facebook-48.png" alt="Facebook" style="width:25px; height:25px; margin-right:8px;">
+            Facebook
+            </a>
+          </li>
+         <li class="mb-3"><a href="https://www.instagram.com/Integraction" class="text-dark text-decoration-none">
+            <img src="../icons/icons8-instagram-logo-48.png" alt="Instagram" style="width:25px; height:25px; margin-right:8px;">
+            Instagram</a></li>
+         <li class="mb-3"><a href="https://www.twitter.com/Integraction" class="text-dark text-decoration-none">
+            <img src="../icons/icons8-twitter-48.png" alt="Twitter" style="width:25px; height:25px; margin-right:8px;">
+            Twitter</a></li>
+         <li class="mb-3"><a href="https://mondeducation.wordpress.com/" class="text-dark text-decoration-none">
+            <img src="../icons/icons8-wordpress-48.png" alt="wordpress" style="width:25px; height:25px; margin-right:8px;">
+            Mondeducation</a></li>
+         </ul>
+      </nav>
 
-               <section class="text-center">
-                  <p>Ceci est une simple page web créée par S. Snow_FlaKe.</p>
-               </section>
+    <main class="flex-grow-1 p-4 d-flex flex-column align-items-center">
+  
+      <header class="bg-white p-4 mb-4 rounded shadow text-center w-100">
+        <h1>Integraction</h1>
+        <h2>Page Contact</h2>
+        <p class="lead">Bienvenue sur la page de contact de l'association Integraction. N'hésitez pas à nous écrire pour toute question, suggestion ou demande d'information.</p>
+        <p class="lead">Nous sommes là pour vous aider !</p>
+        <p class="lead">Vous pouvez nous contacter en remplissant le formulaire ci-dessous.</p>
+      </header>
 
-               <section class="contact-form">
-                  <h3>Contactez-nous</h3>
-                  <form id="contactForm">
-                     <div class="form-group">
-                        <label for="subject">Sujet :</label>
-                        <select class="form-control" id="subject">
-                           <option value="donation">Je veux faire un don</option>
-                           <option value="active_membership">Adhésion active</option>
-                           <option value="passive_membership">Adhésion passive</option>
-                           <option value="event_suggestion">Je propose un événement</option>
-                           <option value="information_request">Demande d'information</option>
-                           <option value="thank_you_message">Message de remerciement</option>
-                           <option value="improvement_suggestions">Suggestions d'amélioration</option>
-                           <option value="other">Autre</option>
-                        </select>
-                     </div>
-                     <div class="form-group">
-                        <label for="name">Nom :</label>
-                        <input type="text" class="form-control" id="name" placeholder="Entrez votre nom">
-                     </div>
-                     <div class="form-group">
-                        <label for="email">Email :</label>
-                        <input type="email" class="form-control" id="email" placeholder="Entrez votre email">
-                     </div>
+        <section class="bg-white p-4 mb-4 rounded shadow w-100">
+         <h3 style="text-align: center;">Contactez-nous</h3>
+         <form id="contactForm">
+            <div class="form-group">
+              <label for="subject">Sujet :</label>
+              <select class="form-control" id="subject">
+                <option value="donation">Je veux faire un don</option>
+                <option value="active_membership">Adhésion active</option>
+                <option value="passive_membership">Adhésion passive</option>
+                <option value="event_suggestion">Je propose un événement</option>
+                <option value="information_request">Demande d'information</option>
+                <option value="thank_you_message">Message de remerciement</option>
+                <option value="improvement_suggestions">Suggestions d'amélioration</option>
+                <option value="other">Autre</option>
+              </select>
+            </div>
 
-                     <div class="form-group">
-                        <label for="message">Message :</label>
-                        <textarea class="form-control" id="message" rows="5" placeholder="Entrez votre message"></textarea>
-                     </div>
-                     <button type="submit" class="btn btn-primary">Envoyer</button>
-                  </form>
-               </section>
+            <div class="form-group">
+              <label for="name">Nom :</label>
+              <input type="text" class="form-control" id="name" placeholder="Entrez votre nom">
+            </div>
 
-               <footer class="text-center">
-                  <p>&copy; 2023 S. Snow_FlaKe</p>
-               </footer>
-            </main>
-         </div>
+            <div class="form-group">
+              <label for="email">Email :</label>
+              <input type="email" class="form-control" id="email" placeholder="Entrez votre email">
+            </div>
+
+            <div class="form-group">
+              <label for="message">Message :</label>
+              <textarea class="form-control" id="message" rows="5" placeholder="Entrez votre message"></textarea>
+            </div>
+
+            <button type="submit" class="btn btn-primary">Envoyer</button>
+          </form>
+        </section>
       </div>
+    </main>
+  </div>
 
-      <script src="/js/form-submission-handler.js"></script>
-      <script>
-         document.getElementById('contactForm').addEventListener('submit', function(event) {
-            event.preventDefault();
-            const name = document.getElementById('name').value;
-            const email = document.getElementById('email').value;
-            const subject = document.getElementById('subject').value;
-            const message = document.getElementById('message').value;
-      
-            if (name && email && subject && message) {
-               alert('Merci pour votre message, ' + name + '! Nous vous répondrons bientôt.');
-            } else {
-               alert('Veuillez remplir tous les champs avant de soumettre.');
-            }
-         });
-      </script>
-   </body>
+  <script src="/js/form-submission-handler.js"></script>
+  <script>
+    document.getElementById('contactForm').addEventListener('submit', function(event) {
+      event.preventDefault();
+      const name = document.getElementById('name').value;
+      const email = document.getElementById('email').value;
+      const subject = document.getElementById('subject').value;
+      const message = document.getElementById('message').value;
+
+      if (name && email && subject && message) {
+        alert('Merci pour votre message, ' + name + '! Nous vous répondrons bientôt.');
+      } else {
+        alert('Veuillez remplir tous les champs avant de soumettre.');
+      }
+    });
+  </script>
+</body>
 </html>
