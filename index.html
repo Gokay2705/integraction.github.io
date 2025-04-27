@@ -1,35 +1,86 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>M. Goekcé AYDIN Web Page</title>
-    <!-- Bootstrap -->
-    <link href="css/my.css" rel="stylesheet">
-  </head>
+   <head>
+      <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <title>Integraction.org</title>
+      <link href="css/my.css" rel="stylesheet">
+      <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+   </head>
    <body>
-      <div class="container">
-         <h1 class="text-center">M. Goekcé AYDIN</h1>
-         <h2 class="text-center">Web Page</h2>
-         <p class="text-center">This is a simple web page created using Bootstrap.</p>
-         <div class="row">
-         <div class="col-md-4">
-            <h3>Column 1</h3>
-            <p>This is the first column.</p>
-         </div>
-         <div class="col-md-4">
-            <h3>Column 2</h3>
-            <p>This is the second column.</p>
-         </div>
-         <div class="col-md-4">
-            <h3>Column 3</h3>
-            <p>This is the third column.</p>
-         </div>
-         </div>
-      </div>
-      <footer class="text-center">
-         <p>&copy; 2023 M. Goekcé AYDIN</p>
-      </footer>
-      <!-- Include all compiled plugins (below), or include individual files as needed -->
-      <script src="js/mail.js"></script>
+      <nav>
+         <h3>Menu</h3>
+         <ul>
+            <li><a href="index.html">Accueil</a></li>
+            <li><a href="#section2">À propos</a></li>
+            <li><a href="#section3">Services</a></li>
+            <li><a href="contact/contact.html">Contact</a></li>
+         </ul>
+      </nav>
+      <main>
+         <header class="text-center">
+            <h1>Integraction</h1>
+            <h2>Web Page</h2>
+         </header>
+
+         <section class="text-center">
+            <p>This is a simple web page created using Bootstrap.</p>
+         </section>
+
+         <section class="row">
+            <div class="col-md-4">
+               <h3>Column 1</h3>
+               <p>This is the first column.</p>
+            </div>
+            <div class="col-md-4">
+               <h3>Column 2</h3>
+               <p>This is the second column.</p>
+            </div>
+            <div class="col-md-4">
+               <h3>Column 3</h3>
+               <p>This is the third column.</p>
+            </div>
+         </section>
+
+         <section class="contact-form">
+            <h3>Contact Me</h3>
+            <form id="contactForm">
+               <div class="form-group">
+                  <label for="name">Name:</label>
+                  <input type="text" class="form-control" id="name" placeholder="Enter your name">
+               </div>
+               <div class="form-group">
+                  <label for="email">Email:</label>
+                  <input type="email" class="form-control" id="email" placeholder="Enter your email">
+               </div>
+               <div class="form-group">
+                  <label for="message">Message:</label>
+                  <textarea class="form-control" id="message" rows="5" placeholder="Enter your message"></textarea>
+               </div>
+               <button type="submit" class="btn btn-primary">Send</button>
+            </form>
+         </section>
+
+         <footer class="text-center">
+            <p>&copy; 2023 M. Goekcé AYDIN</p>
+         </footer>
+      </main>
+
+      <script src="/js/form-submission-handler.js"></script>
+      <script>
+         document.getElementById('contactForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const message = document.getElementById('message').value;
+
+            if (name && email && message) {
+               alert('Thank you for your message, ' + name + '! We will get back to you soon.');
+            } else {
+               alert('Please fill out all fields before submitting.');
+            }
+         });
+      </script>
+   </body>
+</html>
