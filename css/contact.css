@@ -1,7 +1,15 @@
 body {
-   display: flex;
    margin: 0;
+   box-sizing: border-box;
 }
+main {
+   width: 100%;
+   padding: 20px;
+   background-color: #ffffff;
+   box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+   box-sizing: border-box;
+}
+
 nav {
    width: 10%;
    background-color: #f8f9fa;
@@ -19,8 +27,4 @@ nav ul li {
 nav ul li a {
    text-decoration: none;
    color: #333;
-}
-main {
-   width: 85%;
-   padding: 20px;
 }
