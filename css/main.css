@@ -46,11 +46,12 @@ nav ul li a:hover {
 
 main {
    flex-grow: 1;
-   display: flex;
-   flex-direction: column;
-   align-items: center;
+   width: calc(100% - 220px); /* Ekranın genişliği - nav genişliği */
    padding: 40px;
+   box-sizing: border-box;
 }
+
+
 
 header, footer, section {
    background-color: #ffffff;
