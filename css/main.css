@@ -151,7 +151,7 @@ header, footer, section {
   }
 
   main {
-    width: calc(100% - 220px);
+    width: auto; /* Sidebar açıkken ana içerik alanı sidebar genişliğine göre ayarlanır */
     margin-left: 220px;
   }
 }
