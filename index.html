@@ -12,14 +12,14 @@
 <body>
 
    <!-- Mobil Üst Menü -->
-   <header class="topbar">
-      <h4>Integraction</h4>
-      <button id="menu-toggle" class="menu-btn">
+   <header class="topbar d-flex justify-content-between align-items-center px-3 py-2 bg-light shadow-sm">
+      <h4 class="m-0">Integraction</h4>
+      <button id="menu-toggle" class="btn btn-outline-dark">
          <i class="fas fa-bars"></i>
       </button>
    </header>
 
-   <!-- Mobil Açılır Menü -->
+   <!-- Mobil Açılır Menü (Başlangıçta gizli) -->
    <nav id="mobile-menu" class="mobile-menu">
       <ul>
          <li><a href="index.html">Accueil</a></li>
@@ -34,53 +34,81 @@
       </ul>
    </nav>
 
-   <div class="page-container">
-
-      <!-- Masaüstü Sidebar -->
-      <aside class="sidebar">
+      <!-- Sidebar -->
+      <nav id="sidebar" class="sidebar p-3 bg-light shadow">
          <h4><i class="fas fa-bars"></i> Menu</h4>
-         <ul>
-            <li><a href="index.html">Accueil</a></li>
-            <li><a href="#section2">À propos</a></li>
-            <li><a href="#section3">Services</a></li>
-            <li><a href="./contact/contact.html">Contact</a></li>
-            <li><strong>Liens Utiles</strong></li>
-            <li><a href="https://www.facebook.com/Integraction">Facebook</a></li>
-            <li><a href="https://www.instagram.com/Integraction">Instagram</a></li>
-            <li><a href="https://www.twitter.com/Integraction">Twitter</a></li>
-            <li><a href="https://mondeducation.wordpress.com/">Mondeducation</a></li>
+         <ul class="list-unstyled mb-3">
+            <li class="mb-3"><a href="index.html" class="text-dark text-decoration-none">Accueil</a></li>
+            <li class="mb-3"><a href="#section2" class="text-dark text-decoration-none">À propos</a></li>
+            <li class="mb-3"><a href="#section3" class="text-dark text-decoration-none">Services</a></li>
+            <li class="mb-3"><a href="./contact/contact.html" class="text-dark text-decoration-none">Contact</a></li>
          </ul>
-      </aside>
+         <h5 class="mb-4">Liens Utiles</h5>
+         <ul class="list-unstyled mb-3">
+            <li class="mb-3">
+               <a href="https://www.facebook.com/Integraction" class="text-dark text-decoration-none">
+                  <img src="./icons/icons8-facebook-48.png" alt="Facebook"
+                     style="width:25px; height:25px; margin-right:8px;">
+                  Facebook
+               </a>
+            </li>
+            <li class="mb-3">
+               <a href="https://www.instagram.com/Integraction" class="text-dark text-decoration-none">
+                  <img src="./icons/icons8-instagram-logo-48.png" alt="Instagram"
+                     style="width:25px; height:25px; margin-right:8px;">
+                  Instagram
+               </a>
+            </li>
+            <li class="mb-3">
+               <a href="https://www.twitter.com/Integraction" class="text-dark text-decoration-none">
+                  <img src="./icons/icons8-twitter-48.png" alt="Twitter"
+                     style="width:25px; height:25px; margin-right:8px;">
+                  Twitter
+               </a>
+            </li>
+            <li class="mb-3">
+               <a href="https://mondeducation.wordpress.com/" class="text-dark text-decoration-none">
+                  <img src="./icons/icons8-wordpress-48.png" alt="Wordpress"
+                     style="width:25px; height:25px; margin-right:8px;">
+                  Mondeducation
+               </a>
+            </li>
+         </ul>
+      </nav>
 
       <!-- Ana İçerik -->
       <main>
-         <header class="content-header">
+         <header class="text-center">
             <h1>Integraction.org</h1>
-            <p><strong>Unissons nos forces pour un avenir meilleur</strong></p>
+            <p class="lead"><strong>Unissons nos forces pour un avenir meilleur</strong></p>
          </header>
 
-         <section id="section2" class="content-section">
-            <h2>À propos de l'Association Integraction</h2>
-            <p>
+         <section id="section2" class="bg-white p-4 mb-4 rounded shadow">
+            <h2 class="text-center mb-4">À propos de l'Association Integraction</h2>
+            <p class="text-center">
                L'Association Integraction est une organisation bénévole créée pour promouvoir la diversité culturelle,
                renforcer l'harmonie sociale et encourager la solidarité au sein de la société.
             </p>
-            <p>
+            <p class="text-center">
                Nous rassemblons des individus de différentes cultures à travers des projets d'éducation,
                d'intégration sociale et de solidarité.
             </p>
-            <p><em>🌍 Nous sommes plus forts grâce à nos différences.</em></p>
+            <p class="font-italic font-weight-bold text-center mt-4">
+               🌍 Nous sommes plus forts grâce à nos différences.
+            </p>
          </section>
 
-         <section id="section3" class="content-section grid-3">
-            <div>
-               <h3>🌟 Notre Vision</h3>
-               <p>Nous croyons en un monde où la diversité est célébrée et où chacun a la possibilité de s'épanouir.</p>
-               <p>Créer une société plus juste, inclusive et solidaire.</p>
+         <section id="section3" class="row">
+            <div class="col-md-4">
+               <h2 class="text-center mb-4">🌟 Notre Vision</h2>
+               <p class="text-justify">
+                  Nous croyons en un monde où la diversité est célébrée et où chacun a la possibilité de s'épanouir.
+                  Créer une société plus juste, inclusive et axée sur la solidarité.
+               </p>
             </div>
-            <div>
-               <h3>🎯 Notre Mission</h3>
-               <ul>
+            <div class="col-md-4">
+               <h2 class="text-center mb-4">🎯 Notre Mission</h2>
+               <ul class="list-unstyled">
                   <li>✔️ Soutenir la diversité culturelle</li>
                   <li>✔️ Faciliter l'intégration des nouveaux arrivants</li>
                   <li>✔️ Renforcer la solidarité communautaire</li>
@@ -88,9 +116,9 @@
                   <li>✔️ Promouvoir l'égalité des chances</li>
                </ul>
             </div>
-            <div>
-               <h3>🛠️ Nos Activités</h3>
-               <ul>
+            <div class="col-md-4">
+               <h2 class="text-center mb-4">🛠️ Nos Activités</h2>
+               <ul class="list-unstyled">
                   <li>✔️ Événements culturels</li>
                   <li>✔️ Projets sociaux</li>
                   <li>✔️ Ateliers sportifs et artistiques</li>
@@ -98,21 +126,25 @@
             </div>
          </section>
 
-         <section class="content-section">
-            <h2>🤝 Rejoignez-Nous !</h2>
-            <p>Devenez membre de la famille Integraction !</p>
-            <p><strong>Construisons ensemble une société plus forte et plus riche !</strong></p>
-            <a href="./contact/contact.html" class="btn-primary">Contactez-Nous</a>
+         <section class="bg-white p-4 mb-4 rounded shadow">
+            <h2 class="text-center mb-4">🤝 Rejoignez-Nous !</h2>
+            <p class="text-center">
+               Devenez membre de la famille Integraction !
+               Vous pouvez participer à nos activités bénévoles, soutenir nos projets ou tout simplement nous rencontrer
+               autour d'un café.
+            </p>
+            <p class="text-center font-weight-bold">Construisons ensemble une société plus forte et plus riche !</p>
+            <a href="./contact/contact.html" class="btn btn-primary btn-lg d-block mx-auto mt-3">Contactez-Nous</a>
          </section>
 
-         <footer class="footer">
+         <footer class="text-center">
             <p>&copy; 2023 S. Snow_Flake</p>
          </footer>
       </main>
 
    </div>
 
-   <!-- JavaScript: Menü Aç/Kapa -->
+   <!-- Menü Aç Kapa -->
    <script>
       const toggle = document.getElementById('menu-toggle');
       const mobileMenu = document.getElementById('mobile-menu');
