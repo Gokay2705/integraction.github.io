@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
    <meta charset="utf-8">
    <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -8,12 +7,22 @@
    <title>Integraction.org</title>
    <link href="css/main.css" rel="stylesheet">
    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+   <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 </head>
 
 <body>
    <div class="d-flex">
-      <nav class="p-3 bg-light shadow" style="width: 220px; height: 100vh;">
-         <h4><i class="fas fa-bars"></i>Menu</h4>
+      <!-- Hamburger Button for Mobile -->
+      <button class="btn btn-light d-md-none m-2" id="menu-toggle">
+         <i class="fas fa-bars"></i>
+      </button>
+
+      <!-- Overlay -->
+      <div id="overlay"></div>
+
+      <!-- Sidebar Menu -->
+      <nav id="sidebar" class="p-3 bg-light shadow hidden">
+         <h4><i class="fas fa-bars"></i> Menu</h4>
          <ul class="list-unstyled mb-3">
             <li class="mb-3"><a href="index.html" class="text-dark text-decoration-none">Accueil</a></li>
             <li class="mb-3"><a href="#section2" class="text-dark text-decoration-none">À propos</a></li>
@@ -24,32 +33,38 @@
          <ul class="list-unstyled mb-3">
             <li class="mb-3">
                <a href="https://www.facebook.com/Integraction" class="text-dark text-decoration-none">
-                  <img src="./icons/icons8-facebook-48.png" alt="Facebook"
-                     style="width:25px; height:25px; margin-right:8px;">
+                  <img src="./icons/icons8-facebook-48.png" alt="Facebook" style="width:25px; height:25px; margin-right:8px;">
                   Facebook
                </a>
             </li>
-            <li class="mb-3"><a href="https://www.instagram.com/Integraction" class="text-dark text-decoration-none">
-                  <img src="./icons/icons8-instagram-logo-48.png" alt="Instagram"
-                     style="width:25px; height:25px; margin-right:8px;">
-                  Instagram</a></li>
-            <li class="mb-3"><a href="https://www.twitter.com/Integraction" class="text-dark text-decoration-none">
-                  <img src="./icons/icons8-twitter-48.png" alt="Twitter"
-                     style="width:25px; height:25px; margin-right:8px;">
-                  Twitter</a></li>
-            <li class="mb-3"><a href="https://mondeducation.wordpress.com/" class="text-dark text-decoration-none">
-                  <img src="./icons/icons8-wordpress-48.png" alt="wordpress"
-                     style="width:25px; height:25px; margin-right:8px;">
-                  Mondeducation</a></li>
+            <li class="mb-3">
+               <a href="https://www.instagram.com/Integraction" class="text-dark text-decoration-none">
+                  <img src="./icons/icons8-instagram-logo-48.png" alt="Instagram" style="width:25px; height:25px; margin-right:8px;">
+                  Instagram
+               </a>
+            </li>
+            <li class="mb-3">
+               <a href="https://www.twitter.com/Integraction" class="text-dark text-decoration-none">
+                  <img src="./icons/icons8-twitter-48.png" alt="Twitter" style="width:25px; height:25px; margin-right:8px;">
+                  Twitter
+               </a>
+            </li>
+            <li class="mb-3">
+               <a href="https://mondeducation.wordpress.com/" class="text-dark text-decoration-none">
+                  <img src="./icons/icons8-wordpress-48.png" alt="wordpress" style="width:25px; height:25px; margin-right:8px;">
+                  Mondeducation
+               </a>
+            </li>
          </ul>
       </nav>
+
       <main>
          <header class="text-center">
             <h1>Integraction.org</h1>
             <p class="lead" style="text-align: center;"><strong>Unissons nos forces pour un avenir meilleur</strong></p>
          </header>
 
-         <section class="bg-white p-4 mb-4 rounded shadow">
+         <section class="bg-white p-4 mb-4 rounded shadow" id="section2">
             <h2 class="text-center mb-4">À propos de l'Association Integraction</h2>
             <p style="text-align: center;">
                L'Association Integraction est une organisation bénévole créée pour promouvoir la diversité culturelle,
@@ -64,33 +79,30 @@
             </p>
          </section>
 
-         <section class="row">
+         <section class="row" id="section3">
             <div class="col-md-4">
                <h2 class="text-center mb-4">🌟 Notre Vision</h2>
                <p class="text-justify">
                   Nous croyons en un monde où la diversité est célébrée et où chacun a la possibilité de s'épanouir.
                   Créer une société plus juste, inclusive et axée sur la solidarité.
-                  Nous imaginons un monde où chacun peut apprendre des autres et grandir ensemble, sans distinction
-                  d'origine ou de culture.
                </p>
             </div>
             <div class="col-md-4">
                <h2 class="text-center mb-4">🎯 Notre Mission</h2>
                <ul class="list-unstyled">
-                  <li>✔️ Soutenir la diversité culturelle,</li>
-                  <li>✔️ Faciliter l'intégration des nouveaux arrivants (migrants, réfugiés, etc.) dans la société,</li>
-                  <li>✔️ Renforcer la solidarité au sein de la communauté,</li>
-                  <li>✔️ Contribuer au développement des individus à travers l'éducation, l'art et le sport,</li>
-                  <li>✔️ Promouvoir l'égalité des chances pour les jeunes et les enfants.</li>
+                  <li>✔️ Soutenir la diversité culturelle</li>
+                  <li>✔️ Faciliter l'intégration des nouveaux arrivants</li>
+                  <li>✔️ Renforcer la solidarité au sein de la communauté</li>
+                  <li>✔️ Contribuer à l'éducation, l'art et le sport</li>
+                  <li>✔️ Promouvoir l'égalité des chances</li>
                </ul>
             </div>
             <div class="col-md-4">
                <h2 class="text-center mb-4">🛠️ Nos Activités</h2>
                <ul class="list-unstyled">
-                  <li>✔️ <strong>Événements culturels</strong> : Journées de cuisines du monde, festivals culturels</li>
-                  <li>✔️ <strong>Projets sociaux</strong> : Campagnes de dons, événements de solidarité</li>
-                  <li>✔️ <strong>Ateliers sportifs et artistiques</strong> : Tournois de football, ateliers d'art et de
-                     musique</li>
+                  <li>✔️ <strong>Événements culturels</strong> : festivals, cuisines du monde</li>
+                  <li>✔️ <strong>Projets sociaux</strong> : campagnes de dons</li>
+                  <li>✔️ <strong>Ateliers artistiques & sportifs</strong> : art, musique, football</li>
                </ul>
             </div>
          </section>
@@ -98,20 +110,36 @@
          <section class="bg-white p-4 mb-4 rounded shadow">
             <h2 class="text-center mb-4">🤝 Rejoignez-Nous !</h2>
             <p style="text-align: center;">
-               Devenez membre de la famille Integraction !
-               Vous pouvez participer à nos activités bénévoles, soutenir nos projets ou tout simplement nous rencontrer
-               autour d'un café.
-            </p>
-            <p style="text-align: center;"><strong>Construisons ensemble une société plus forte et plus riche !</strong>
+               Devenez membre de la famille Integraction ! Participez à nos activités ou venez nous rencontrer.
             </p>
             <a href="./contact/contact.html" class="btn btn-primary btn-lg d-block mx-auto mt-3">Contactez-Nous</a>
-
          </section>
 
          <footer class="text-center">
             <p>&copy; 2023 S. Snow_Flake</p>
          </footer>
       </main>
-</body>
+   </div>
 
+   <!-- Scripts -->
+   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+   <script>
+      const toggleBtn = document.getElementById('menu-toggle');
+      const sidebar = document.getElementById('sidebar');
+      const overlay = document.getElementById('overlay');
+    
+      toggleBtn.addEventListener('click', () => {
+        sidebar.classList.toggle('hidden');
+        overlay.style.display = sidebar.classList.contains('hidden') ? 'none' : 'block';
+        document.body.style.overflow = sidebar.classList.contains('hidden') ? 'auto' : 'hidden';
+      });
+    
+      overlay.addEventListener('click', () => {
+        sidebar.classList.add('hidden');
+        overlay.style.display = 'none';
+        document.body.style.overflow = 'auto';
+      });
+    </script>
+    
+</body>
 </html>
