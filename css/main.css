@@ -1,5 +1,4 @@
 body {
-  display: flex;
   margin: 0;
   background-color: #f4f6f8;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -87,7 +86,7 @@ header, footer, section {
   }
 
   #sidebar {
-     width: 220px;
+     width: auto;
      height: 100vh;
      flex-direction: column;
      align-items: flex-start;
@@ -104,7 +103,7 @@ header, footer, section {
   }
 
   #sidebar ul li {
-     margin: 10px 0;
+     margin: 3px 0;
   }
 
   #sidebar.hidden {
@@ -115,10 +114,27 @@ header, footer, section {
      transform: translateX(0);
   }
 
+  #sidebar ul li a {
+    font-size: 14px; /* Varsayılan boyutu küçültün, örn. 16px yerine 14px */
+    padding: 4px 8px;
+  }
+
+  #sidebar h4,
+  #sidebar h5 {
+    font-size: 16px; /* Başlıklar da küçültülebilir */
+  }
+
+  #sidebar img {
+    width: 20px;
+    height: 20px;
+  }
+
   main {
      width: 100%; /* Sidebar gizli olunca main tam ekran */
      padding: 20px;
+     margin-left: 0;
   }
+
 }
 
 @media (min-width: 768px) {
@@ -136,5 +152,6 @@ header, footer, section {
 
   main {
     width: calc(100% - 220px);
+    margin-left: 220px;
   }
 }
