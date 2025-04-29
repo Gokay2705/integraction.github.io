@@ -104,3 +104,34 @@ header, footer, section {
    }
 }
 
+/* Mobil görünümde sidebar gizli */
+@media (max-width: 768px) {
+   .sidebar {
+      position: fixed;
+      top: 56px; /* header yüksekliği */
+      left: 0;
+      width: 220px;
+      height: calc(100vh - 56px);
+      background-color: #e9ecef;
+      box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+      transform: translateX(-100%);
+      transition: transform 0.3s ease;
+      z-index: 1000;
+   }
+
+   .sidebar.active {
+      transform: translateX(0);
+   }
+
+   .topbar {
+      height: 56px;
+   }
+
+   body {
+      flex-direction: column;
+   }
+
+   main {
+      width: 100%;
+   }
+}
