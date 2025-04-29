@@ -1,11 +1,6 @@
 /* Genel */
-* {
-   margin: 0;
-   padding: 0;
-   box-sizing: border-box;
-}
-
 body {
+   margin: 0;
    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
    background-color: #f4f6f8;
 }
@@ -13,67 +8,65 @@ body {
 /* Topbar */
 .topbar {
    height: 56px;
-   background: #e9ecef;
    display: flex;
-   justify-content: space-between;
    align-items: center;
-   padding: 0 20px;
+   justify-content: space-between;
+   background-color: #e9ecef;
+   padding: 0 15px;
    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-}
-
-.menu-btn {
-   background: none;
-   border: none;
-   font-size: 24px;
+   position: relative;
+   z-index: 1001;
 }
 
 /* Mobil Menü */
 .mobile-menu {
    display: none;
-   background: white;
+   background-color: #ffffff;
    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
    position: absolute;
    width: 100%;
    top: 56px;
    left: 0;
-   z-index: 999;
+   z-index: 1000;
 }
 
 .mobile-menu ul {
    list-style: none;
    padding: 10px;
+   margin: 0;
 }
 
 .mobile-menu ul li {
-   margin-bottom: 10px;
+   margin: 10px 0;
 }
 
 .mobile-menu ul li a {
    text-decoration: none;
    color: #333;
    font-weight: 600;
+   padding: 5px 10px;
    display: block;
-   padding: 5px;
+}
+
+.mobile-menu ul li a:hover {
+   background-color: #f1f1f1;
+   color: #007bff;
 }
 
 .mobile-menu.active {
    display: block;
 }
 
-/* Sayfa düzeni */
-.page-container {
-   display: flex;
-}
-
-/* Sidebar */
+/* Sidebar (Masaüstü) */
 .sidebar {
    width: 220px;
-   background: #e9ecef;
-   height: calc(100vh - 56px);
+   background-color: #e9ecef;
+   height: 100vh;
    padding: 20px;
-   position: sticky;
-   top: 56px;
-   overflow-y: auto;
+   box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+   position: fixed;
+   top: 0;
+   left: 0;
 }
 
 .sidebar ul {
@@ -90,7 +83,6 @@ body {
    color: #333;
    font-weight: 600;
    display: block;
-   padding: 5px;
 }
 
 .sidebar ul li a:hover {
@@ -99,61 +91,42 @@ body {
 
 /* Ana içerik */
 main {
-   flex-grow: 1;
+   margin-left: 240px;
    padding: 40px;
 }
 
-.content-header {
-   text-align: center;
-   margin-bottom: 40px;
-}
-
-.content-section {
-   background: white;
-   padding: 20px;
-   margin-bottom: 20px;
-   border-radius: 10px;
-   box-shadow: 0 2px 5px rgba(0,0,0,0.05);
-}
-
-.grid-3 {
-   display: grid;
-   grid-template-columns: repeat(3, 1fr);
-   gap: 20px;
-}
-
-.btn-primary {
-   background: #007bff;
-   color: white;
-   padding: 10px 20px;
-   text-decoration: none;
-   display: inline-block;
-   border-radius: 5px;
-   margin-top: 10px;
-   text-align: center;
-}
-
-.footer {
-   text-align: center;
-   padding: 20px;
-   margin-top: 20px;
-}
-
-/* Responsive Ayarlar */
 @media (max-width: 768px) {
    .sidebar {
       display: none;
    }
 
-   .page-container {
-      flex-direction: column;
-   }
-
    main {
+      margin-left: 0;
       padding: 20px;
    }
+}
 
-   .grid-3 {
-      grid-template-columns: 1fr;
+/* Mobil menü sadece 768px altı ekranda görünür */
+.mobile-menu {
+   display: none;
+}
+
+@media (max-width: 768px) {
+   .sidebar {
+      display: none;
+   }
+
+   .mobile-menu.active {
+      display: block;
+   }
+}
+
+@media (min-width: 769px) {
+   .mobile-menu {
+      display: none !important;
+   }
+
+   .sidebar {
+      display: block;
    }
 }
