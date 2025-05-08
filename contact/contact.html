@@ -139,23 +139,28 @@
       const subject = form.querySelector('[name="subject"]').value.trim();
       const message = form.querySelector('[name="message"]').value.trim();
 
-      if (!name || !email || !subject) {
+      if (!name || !email || !subject || !message) {
         event.preventDefault();
         showPopup("Veuillez remplir tous les champs obligatoires.", false);
         return;
       }
 
-      // Le reste est géré par le fichier form-submission-handler.js
+      // validation email format côté client (optionnel car déjà dans JS handler)
+      const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!emailPattern.test(email)) {
+        event.preventDefault();
+        showPopup("Veuillez entrer une adresse e-mail valide.", false);
+        return;
+      }
     });
 
     // Afficher une confirmation en cas de succès
-    const originalSuccessHandler = window.handleFormSuccess;
     window.handleFormSuccess = function(form) {
-      if (originalSuccessHandler) originalSuccessHandler(form);
       showPopup("Votre message a été envoyé avec succès ✔", true);
     };
   });
 </script>
+
 
 <!-- Form gönderim işleyici -->
 <script src="../js/form-submission-handler.js"></script>
