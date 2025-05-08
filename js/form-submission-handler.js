@@ -82,7 +82,6 @@
         } else {
           showPopup("Votre message a été envoyé avec succès ✔", true);
         }
-    
         // FORMU TEMİZLE
         form.reset();
       }
