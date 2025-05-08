@@ -60,38 +60,91 @@
 
       <section class="bg-white p-4 mb-4 rounded shadow w-100">
         <h3 style="text-align: center;">Contactez-nous</h3>
-        <form id="contactForm">
-          <div class="form-group">
-            <label for="subject">Sujet :</label>
-            <select class="form-control" id="subject">
-              <option value="donation">Je veux faire un don</option>
-              <option value="active_membership">Adhésion active</option>
-              <option value="passive_membership">Adhésion passive</option>
-              <option value="event_suggestion">Je propose un événement</option>
-              <option value="information_request">Demande d'information</option>
-              <option value="thank_you_message">Message de remerciement</option>
-              <option value="improvement_suggestions">Suggestions d'amélioration</option>
-              <option value="other">Autre</option>
-            </select>
-          </div>
+<!-- Form Start -->
+<form class="gform" id="contactForm" method="POST"
+      data-email="mstfgkcaydin@gmail.com"
+      data-sheet="FormResponses"
+      action="https://script.google.com/macros/s/AKfycbz7LcXmtxKMZc6AuGPlNX34jvrG30ahzuKjRf-5LbwUDPT76A5xUis6mTyszlOiMoFoyQ/exec">
 
-          <div class="form-group">
-            <label for="name">Nom :</label>
-            <input type="text" class="form-control" id="name" placeholder="Entrez votre nom">
-          </div>
+  <div class="form-group">
+    <label for="subject">Sujet :</label>
+    <select class="form-control" id="subject" name="subject">
+      <option value="donation">Je veux faire un don</option>
+      <option value="active_membership">Adhésion active</option>
+      <option value="passive_membership">Adhésion passive</option>
+      <option value="event_suggestion">Je propose un événement</option>
+      <option value="information_request">Demande d'information</option>
+      <option value="thank_you_message">Message de remerciement</option>
+      <option value="improvement_suggestions">Suggestions d'amélioration</option>
+      <option value="other">Autre</option>
+    </select>
+  </div>
 
-          <div class="form-group">
-            <label for="email">Email :</label>
-            <input type="email" class="form-control" id="email" placeholder="Entrez votre email">
-          </div>
+  <div class="form-group">
+    <label for="name">Nom :</label>
+    <input type="text" class="form-control" id="name" name="name" placeholder="Entrez votre nom">
+  </div>
 
-          <div class="form-group">
-            <label for="message">Message :</label>
-            <textarea class="form-control" id="message" rows="5" placeholder="Entrez votre message"></textarea>
-          </div>
+  <div class="form-group">
+    <label for="email">Email :</label>
+    <input type="email" class="form-control" id="email" name="email" placeholder="Entrez votre email">
+  </div>
 
-          <button type="submit" class="btn btn-primary">Envoyer</button>
-        </form>
+  <div class="form-group">
+    <label for="message">Message :</label>
+    <textarea class="form-control" id="message" name="message" rows="5" placeholder="Entrez votre message"></textarea>
+  </div>
+
+  <!-- Honeypot (botlar için görünmeyen alan) -->
+  <input type="text" name="honeypot" style="display:none">
+
+  <!-- Form elementleri için sarıcı -->
+  <div class="form-elements">
+    <button type="submit" class="btn btn-primary">Envoyer</button>
+  </div>
+
+  <!-- Başarılı gönderim mesajı -->
+  <div class="thankyou_message" style="display:none;">
+    <h4>Merci pour votre message !</h4>
+  </div>
+</form>
+<!-- Form End -->
+
+<!-- JavaScript dosyasını çağır -->
+<script src="../js/form-submission-handler.js"></script>
+<!-- Form gönderim işleyici -->
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const form = document.getElementById('contactForm');
+    const thankYouMessage = document.querySelector('.thankyou_message');
+
+    form.addEventListener('submit', function(event) {
+      event.preventDefault(); // Formun varsayılan gönderimini engelle
+
+      // Form verilerini topla
+      const formData = new FormData(form);
+
+      // Formu gönder
+      fetch(form.action, {
+        method: 'POST',
+        body: formData
+      })
+      .then(response => response.json())
+      .then(data => {
+        if (data.result === 'success') {
+          // Başarılı gönderim mesajını göster
+          thankYouMessage.style.display = 'block';
+          form.reset(); // Formu sıfırla
+        } else {
+          alert('Une erreur s\'est produite. Veuillez réessayer.');
+        }
+      })
+      .catch(error => {
+        console.error('Erreur:', error);
+        alert('Une erreur s\'est produite. Veuillez réessayer.');
+      });
+    });
+  });
       </section>
     </main>
   </div>
@@ -128,4 +181,5 @@
     });
   </script>
 </body>
+<script src="../js/form-submission-handler.js"></script>
 </html>
