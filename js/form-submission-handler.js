@@ -15,43 +15,31 @@
   }
 
   function getFormData(form) {
-    var elements = form.elements;
-
-    var fields = Object.keys(elements).filter(function(k) {
-      return elements[k].name !== "honeypot";
-    }).map(function(k) {
-      if (elements[k].name !== undefined) {
-        return elements[k].name;
-      } else if (elements[k].length > 0) {
-        return elements[k].item(0).name;
-      }
-    }).filter(function(item, pos, self) {
-      return self.indexOf(item) == pos && item;
-    });
-
+    var fields = ["name", "email", "subject", "message"];
     var formData = {};
+  
     fields.forEach(function(name) {
-      var element = elements[name];
-      formData[name] = element.value;
-      if (element.length) {
-        var data = [];
-        for (var i = 0; i < element.length; i++) {
-          var item = element.item(i);
-          if (item.checked || item.selected) {
-            data.push(item.value);
+      var element = form.elements[name];
+      if (element) {
+        if (element.length && element[0].type === "checkbox") {
+          var values = [];
+          for (var i = 0; i < element.length; i++) {
+            if (element[i].checked) values.push(element[i].value);
           }
+          formData[name] = values.join(", ");
+        } else {
+          formData[name] = element.value || "";
         }
-        formData[name] = data.join(', ');
       }
     });
-
+  
     formData.formDataNameOrder = JSON.stringify(fields);
     formData.formGoogleSheetName = form.dataset.sheet || "FormResponses";
     formData.formGoogleSendEmail = form.dataset.email || "";
-
-    console.log(formData);
+  
     return formData;
   }
+  
 
   function handleFormSubmit(event) {
     event.preventDefault();
