@@ -39,7 +39,6 @@
   
     return formData;
   }
-  
 
   function handleFormSubmit(event) {
     event.preventDefault();
@@ -49,14 +48,21 @@
       return false;
     }
 
+    const name = form.querySelector('[name="name"]').value.trim();
+    const email = form.querySelector('[name="email"]').value.trim();
+    const subject = form.querySelector('[name="subject"]').value.trim();
+    const message = form.querySelector('[name="message"]').value.trim();
+
+    if (!name || !email || !subject || !message) {
+      showPopup("Veuillez remplir tous les champs obligatoires.", false);
+      return false;
+    }
+
     var data = getFormData(form);
 
     if (data.email && !validEmail(data.email)) {
-      var invalidEmail = form.querySelector(".email-invalid");
-      if (invalidEmail) {
-        invalidEmail.style.display = "block";
-        return false;
-      }
+      showPopup("Adresse e-mail invalide.", false);
+      return false;
     }
 
     disableAllButtons(form);
@@ -70,9 +76,10 @@
         if (formElements) {
           formElements.style.display = "none";
         }
-        var thankYouMessage = form.querySelector(".thankyou_message");
-        if (thankYouMessage) {
-          thankYouMessage.style.display = "block";
+        if (window.handleFormSuccess) {
+          window.handleFormSuccess(form);
+        } else {
+          showPopup("Votre message a été envoyé avec succès ✔", true);
         }
       }
     };
@@ -96,5 +103,23 @@
     for (var i = 0; i < buttons.length; i++) {
       buttons[i].disabled = true;
     }
+  }
+
+  function showPopup(message, isSuccess = true) {
+    const popup = document.createElement('div');
+    popup.textContent = message;
+    popup.style.position = 'fixed';
+    popup.style.bottom = '30px';
+    popup.style.right = '30px';
+    popup.style.padding = '16px 20px';
+    popup.style.backgroundColor = isSuccess ? '#28a745' : '#dc3545';
+    popup.style.color = 'white';
+    popup.style.borderRadius = '6px';
+    popup.style.boxShadow = '0 2px 8px rgba(0,0,0,0.2)';
+    popup.style.zIndex = '10000';
+    document.body.appendChild(popup);
+    setTimeout(() => {
+      popup.remove();
+    }, 4000);
   }
 })();

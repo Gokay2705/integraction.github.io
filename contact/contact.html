@@ -105,12 +105,58 @@
   </div>
 
   <!-- Başarılı gönderim mesajı -->
-  <div class="thankyou_message" style="display:none;">
+  <!-- <div class="thankyou_message" style="display:none;">
     <h4>Merci pour votre message !</h4>
-  </div>
+  </div> -->
 </form>
 
 <!-- JavaScript dosyasını çağır -->
+<script>
+  function showPopup(message, isSuccess = true) {
+    const popup = document.createElement('div');
+    popup.textContent = message;
+    popup.style.position = 'fixed';
+    popup.style.bottom = '30px';
+    popup.style.right = '30px';
+    popup.style.padding = '16px 20px';
+    popup.style.backgroundColor = isSuccess ? '#28a745' : '#dc3545'; // vert / rouge
+    popup.style.color = 'white';
+    popup.style.borderRadius = '6px';
+    popup.style.boxShadow = '0 2px 8px rgba(0,0,0,0.2)';
+    popup.style.zIndex = '10000';
+    document.body.appendChild(popup);
+    setTimeout(() => {
+      popup.remove();
+    }, 4000);
+  }
+
+  document.addEventListener('DOMContentLoaded', () => {
+    const form = document.getElementById('contactForm');
+
+    form.addEventListener('submit', function(event) {
+      const name = form.querySelector('[name="name"]').value.trim();
+      const email = form.querySelector('[name="email"]').value.trim();
+      const subject = form.querySelector('[name="subject"]').value.trim();
+
+      if (!name || !email || !subject) {
+        event.preventDefault();
+        showPopup("Veuillez remplir tous les champs obligatoires.", false);
+        return;
+      }
+
+      // Le reste est géré par le fichier form-submission-handler.js
+    });
+
+    // Afficher une confirmation en cas de succès
+    const originalSuccessHandler = window.handleFormSuccess;
+    window.handleFormSuccess = function(form) {
+      if (originalSuccessHandler) originalSuccessHandler(form);
+      showPopup("Votre message a été envoyé avec succès ✔", true);
+    };
+  });
+</script>
+
+<!-- Form gönderim işleyici -->
 <script src="../js/form-submission-handler.js"></script>
 <!-- Form gönderim işleyici -->
 </body>
