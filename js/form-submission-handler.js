@@ -75,13 +75,19 @@
         if (formElements) {
           formElements.style.display = "none";
         }
+    
+        // Başarı popup'u göster
         if (window.handleFormSuccess) {
           window.handleFormSuccess(form);
         } else {
           showPopup("Votre message a été envoyé avec succès ✔", true);
         }
+    
+        // FORMU TEMİZLE
+        form.reset();
       }
     };
+    
     var encoded = Object.keys(data).map(function(k) {
       return encodeURIComponent(k) + "=" + encodeURIComponent(data[k]);
     }).join('&');
