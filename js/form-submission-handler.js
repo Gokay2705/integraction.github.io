@@ -122,3 +122,12 @@
     }, 4000);
   }
 })();
+
+if (window.handleFormSuccess) {
+  window.handleFormSuccess(form);
+} else {
+  showPopup("Votre message a été envoyé avec succès ✔", true);
+}
+// 🧹 Formu temizle
+form.reset();
+// 🧹 Formu temizle
