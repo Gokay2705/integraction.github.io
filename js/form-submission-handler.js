@@ -17,7 +17,7 @@
   function getFormData(form) {
     var fields = ["name", "email", "subject", "message"];
     var formData = {};
-  
+
     fields.forEach(function(name) {
       var element = form.elements[name];
       if (element) {
@@ -32,11 +32,11 @@
         }
       }
     });
-  
+
     formData.formDataNameOrder = JSON.stringify(fields);
     formData.formGoogleSheetName = form.dataset.sheet || "FormResponses";
     formData.formGoogleSendEmail = form.dataset.email || "";
-  
+
     return formData;
   }
 
@@ -51,20 +51,19 @@
     const name = form.querySelector('[name="name"]').value.trim();
     const email = form.querySelector('[name="email"]').value.trim();
     const subject = form.querySelector('[name="subject"]').value.trim();
-    const message = form.querySelector('[name="message"]').value.trim();
+    const message = form.querySelector('[name="message"]').value;
 
-    if (!name || !email || !subject || !message) {
+    if (!name || !email || !subject || !message || message.trim().length === 0) {
       showPopup("Veuillez remplir tous les champs obligatoires.", false);
       return false;
     }
 
-    var data = getFormData(form);
-
-    if (data.email && !validEmail(data.email)) {
-      showPopup("Adresse e-mail invalide.", false);
+    if (!validEmail(email)) {
+      showPopup("Veuillez entrer une adresse e-mail valide.", false);
       return false;
     }
 
+    var data = getFormData(form);
     disableAllButtons(form);
     var url = form.action;
     var xhr = new XMLHttpRequest();
